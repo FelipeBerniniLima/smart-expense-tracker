@@ -33,6 +33,21 @@ export default function App() {
       
       {message ? <Text style={styles.message}>{message}</Text> : null}
       
+      {expenses.length > 0 && (
+        <View style={styles.expensesContainer}>
+          <Text style={styles.expensesTitle}>Recent Expenses:</Text>
+          {expenses.map((expense) => (
+            <View key={expense.id} style={styles.expenseItem}>
+              <Text style={styles.expenseDescription}>{expense.description}</Text>
+              <Text style={styles.expenseAmount}>${expense.amount}</Text>
+              <Text style={styles.expenseDetails}>
+                Paid by {expense.paid_by_name} • {expense.group_name}
+              </Text>
+            </View>
+          ))}
+        </View>
+      )}
+      
       <StatusBar style="auto" />
     </View>
   );
@@ -78,5 +93,41 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#27ae60',
     textAlign: 'center',
+  },
+  expensesContainer: {
+    marginTop: 20,
+    width: '100%',
+    maxWidth: 400,
+  },
+  expensesTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#2c3e50',
+    marginBottom: 10,
+    textAlign: 'center',
+  },
+  expenseItem: {
+    backgroundColor: 'white',
+    padding: 15,
+    marginVertical: 5,
+    borderRadius: 8,
+    borderLeftWidth: 4,
+    borderLeftColor: '#3498db',
+  },
+  expenseDescription: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#2c3e50',
+  },
+  expenseAmount: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#e74c3c',
+    marginTop: 2,
+  },
+  expenseDetails: {
+    fontSize: 12,
+    color: '#7f8c8d',
+    marginTop: 4,
   },
 });

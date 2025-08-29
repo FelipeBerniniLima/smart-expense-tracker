@@ -1,1 +1,1 @@
-"# Smart Group Expense Tracker" 
+"# Smart Group Expense Tracker"
