@@ -1,4 +1,5 @@
-const { Pool } = require('pg');
+// permanent data base configuraotion file
+const { Pool } = require('pg'); 
 require('dotenv').config();
 
 // Create a connection pool to PostgreSQL
